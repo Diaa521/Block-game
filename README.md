@@ -6,4 +6,5 @@ When the player falls off the world, the game recognizes that they are 100 block
 
 # Other Information
 • The game is created from 60 lines of Python code.
+
 • There is a bug in the code, but the game will probably still run.
