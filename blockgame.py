@@ -3,11 +3,9 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 import random
 
 
-
 app = Ursina()
 player = FirstPersonController()
-Sky()
-
+Sky() # With these simple code block, you can create the sky.
 player.position = (10, 100, 10)
 boxes = []
 
@@ -31,20 +29,20 @@ for x in range(20):
     for z in range(20):
         add_box((x, 0, z))
 
-# Untere Ebene: 22x22 (1 Block größer in alle Richtungen)
+# Lower level: 22x22 (1 block larger in all directions)
 for x in range(-1, 21):
     for z in range(-1, 21):
         add_box((x, -1, z))
 
 def update():
-    # Finde den tiefsten Punkt der Welt (Y-Position des untersten Blocks)
+    # Find the lowest point in the world (Y-position of the lowest block)
     lowest_block_y = 0
     for box in boxes:
         if box.y < lowest_block_y:
             lowest_block_y = box.y
     
-    # Prüfe, ob Spieler 100 Meter unter dem tiefsten Block ist
-    # 1 Block = 1 Meter, also 100 Blöcke unter dem tiefsten Block
+    # Check if the player is 100 meters below the lowest block.
+    # 1 block = 1 meter, so 100 blocks below the lowest block
     if player.y < lowest_block_y - 100:
         player.position = (10, 100, 10)
         print(f"Spieler war bei Y={player.y}, tiefster Block bei Y={lowest_block_y}")
